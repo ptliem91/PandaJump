@@ -51,12 +51,12 @@ public class PandaController : MonoBehaviour
 	{
 		if (pandaDiedTime == -1) {
 			if ((Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) && jumpLeft > 0) {
-				if (pandaBody.velocity.y < 0) {
+				if (pandaBody.velocity.y < 0 || pandaBody.velocity.y > 3.5f) {
 					pandaBody.velocity = Vector2.zero;
 				}
 
 				if (jumpLeft == 1 || Input.touchCount > 1 || DoubleClick ()) {
-					pandaBody.AddForce (transform.up * pandaJumpForce * 0.4f);
+					pandaBody.AddForce (transform.up * pandaJumpForce * 1f);
 //					Debug.Log (jumpLeft);
 				} else {
 					pandaBody.AddForce (transform.up * pandaJumpForce);
