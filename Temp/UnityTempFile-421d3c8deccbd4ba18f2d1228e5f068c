@@ -85,10 +85,12 @@
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/BGCollector.cs'
 'Assets/Scripts/DestroyController.cs'
+'Assets/Scripts/GamePlayController.cs'
 'Assets/Scripts/MenuController.cs'
 'Assets/Scripts/MoveLeft.cs'
 'Assets/Scripts/PandaController.cs'
 'Assets/Scripts/PrefabSpawner.cs'
 'Assets/Scripts/Recyler.cs'
+'Assets/Scripts/ScoreController.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'

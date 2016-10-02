@@ -15,23 +15,27 @@ public class PandaController : MonoBehaviour
 	private float pandaDiedTime = -1;
 
 	//Score
-	public Text txtScore;
+	//	public Text txtScore;
 	private float startTime;
+
+	private float score = 0f;
 
 	//nhay 2 lan
 	private int jumpLeft = 2;
-	bool isAndroidPlatform = false;
+	//	bool isAndroidPlatform = false;
 
 	//Audio
 	public AudioSource jumpSfx;
 	public AudioSource deathSfx;
+	[SerializeField]
+	private AudioClip deathClip;
 
 	//
 	private float lastClickTime = 0f;
 	private float catchTime = 0.01f;
 
 	//
-	private bool isPaused = true;
+	private bool isExited = true;
 
 	// Use this for initialization
 	void Start ()
@@ -41,9 +45,9 @@ public class PandaController : MonoBehaviour
 
 		startTime = Time.time;
 
-		if (Application.platform == RuntimePlatform.Android) {
-			isAndroidPlatform = true;
-		}
+//		if (Application.platform == RuntimePlatform.Android) {
+//			isAndroidPlatform = true;
+//		}
 	}
 	
 	// Update is called once per frame
@@ -69,20 +73,22 @@ public class PandaController : MonoBehaviour
 
 			anim.SetFloat ("vVelocity", pandaBody.velocity.y);
 
-			txtScore.text = (Time.time - startTime).ToString ("0.0");
+//			txtScore.text = (Time.time - startTime).ToString ("0.0");
 
-		} else {
-			if (Time.time > pandaDiedTime + 2) {
-//				Application.LoadLevel (Application.loadedLevel);
-				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-			}
-		}
+			score = (Time.time - startTime);
+			GamePlayController.instance.InscreamentScore (score);
+		} 
+//		else {
+//			if (Time.time > pandaDiedTime + 2) {
+//				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+//			}
+//		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			if (!isPaused) {
+			if (!isExited) {
 				Application.Quit (); 
 			} else {
-				isPaused = false;
+				isExited = false;
 			}
 		}
 	}
@@ -100,7 +106,9 @@ public class PandaController : MonoBehaviour
 
 			pandaDiedTime = Time.time;
 			anim.SetBool ("Died", true);
-			deathSfx.Play ();
+			deathSfx.PlayOneShot (deathClip);
+
+			GamePlayController.instance.PandaDiedShowPanel (score);
 
 		} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
 			jumpLeft = 2;

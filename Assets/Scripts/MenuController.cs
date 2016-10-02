@@ -2,17 +2,20 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour {
+public class MenuController : MonoBehaviour
+{
 
 	public GameObject audioOnIcon;
 	public GameObject audioOffIcon;
 
-	public void StartGame(){
+	public void StartGame ()
+	{
 //		Application.LoadLevel ("Main");
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene ("Main");
 	}
 
-	public void ToggleSound(){
+	public void ToggleSound ()
+	{
 		if (PlayerPrefs.GetInt ("Muted", 0) == 0) {
 			PlayerPrefs.SetInt ("Muted", 1);
 		} else {
@@ -22,7 +25,8 @@ public class MenuController : MonoBehaviour {
 		SetSoundState ();
 	}
 
-	private void SetSoundState(){
+	private void SetSoundState ()
+	{
 		if (PlayerPrefs.GetInt ("Muted", 0) == 0) {
 			AudioListener.volume = 1;
 			audioOffIcon.SetActive (false);
@@ -34,4 +38,5 @@ public class MenuController : MonoBehaviour {
 			audioOnIcon.SetActive (false);
 		}
 	}
+
 }
