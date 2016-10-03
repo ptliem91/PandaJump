@@ -42,6 +42,7 @@ public class GamePlayController : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		pausePanel.SetActive (true);
+		pauseButon.gameObject.SetActive (false);
 
 		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
 
@@ -55,17 +56,21 @@ public class GamePlayController : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 		pausePanel.SetActive (false);
+
+		pauseButon.gameObject.SetActive (true);
 	}
 
 	public void RestartGame ()
 	{
 		Time.timeScale = 1f;
-		SceneManager.LoadScene ("Main");
+//		SceneManager.LoadScene ("Main");
+		SceneFader.instance.FadeIn ("Main");
 	}
 
 	public void PandaDiedShowPanel (float score)
 	{
 		pausePanel.SetActive (true);
+		pauseButon.gameObject.SetActive (false);
 
 		if (score > ScoreController.instance.GetHighScore ()) {
 			ScoreController.instance.SetHighScore (score);
@@ -81,7 +86,9 @@ public class GamePlayController : MonoBehaviour
 
 	public void MenuButton ()
 	{
-		SceneManager.LoadScene ("Start");
+//		Application.LoadLevel ("Start");
+		Time.timeScale = 1f;
+		SceneFader.instance.FadeIn ("Start");
 	}
 
 	public void InscreamentScore (float score)

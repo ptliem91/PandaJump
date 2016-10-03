@@ -11,7 +11,8 @@ public class MenuController : MonoBehaviour
 	public void StartGame ()
 	{
 //		Application.LoadLevel ("Main");
-		SceneManager.LoadScene ("Main");
+//		SceneManager.LoadScene ("Main");
+		SceneFader.instance.FadeIn ("Main");
 	}
 
 	public void ToggleSound ()

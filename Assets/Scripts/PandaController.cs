@@ -106,6 +106,7 @@ public class PandaController : MonoBehaviour
 
 			pandaDiedTime = Time.time;
 			anim.SetBool ("Died", true);
+
 			deathSfx.PlayOneShot (deathClip);
 
 			GamePlayController.instance.PandaDiedShowPanel (score);
@@ -141,7 +142,7 @@ public class PandaController : MonoBehaviour
 				isDoubleClick = true;
 			} else {
 				//normal click
-				print ("miss:" + (Time.time - lastClickTime).ToString ());
+//				print ("miss:" + (Time.time - lastClickTime).ToString ());
 				isDoubleClick = false;
 			}
 			lastClickTime = Time.time;
@@ -159,6 +160,5 @@ public class PandaController : MonoBehaviour
 		}
 		return false;
 	}
-
 
 }
