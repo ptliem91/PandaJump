@@ -27,15 +27,13 @@ public class PandaController : MonoBehaviour
 	//Audio
 	public AudioSource jumpSfx;
 	public AudioSource deathSfx;
+	public AudioSource backgroundSfx;
 	[SerializeField]
 	private AudioClip deathClip;
 
 	//
 	private float lastClickTime = 0f;
 	private float catchTime = 0.01f;
-
-	//
-	private bool isExited = true;
 
 	// Use this for initialization
 	void Start ()
@@ -73,24 +71,9 @@ public class PandaController : MonoBehaviour
 
 			anim.SetFloat ("vVelocity", pandaBody.velocity.y);
 
-//			txtScore.text = (Time.time - startTime).ToString ("0.0");
-
 			score = (Time.time - startTime);
 			GamePlayController.instance.InscreamentScore (score);
 		} 
-//		else {
-//			if (Time.time > pandaDiedTime + 2) {
-//				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-//			}
-//		}
-
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			if (!isExited) {
-				Application.Quit (); 
-			} else {
-				isExited = false;
-			}
-		}
 	}
 
 	void OnCollisionEnter2D (Collision2D collision)
@@ -108,6 +91,7 @@ public class PandaController : MonoBehaviour
 			anim.SetBool ("Died", true);
 
 			deathSfx.PlayOneShot (deathClip);
+			backgroundSfx.Stop ();
 
 			GamePlayController.instance.PandaDiedShowPanel (score);
 
@@ -141,8 +125,6 @@ public class PandaController : MonoBehaviour
 				print ("done:" + (Time.time - lastClickTime).ToString ());
 				isDoubleClick = true;
 			} else {
-				//normal click
-//				print ("miss:" + (Time.time - lastClickTime).ToString ());
 				isDoubleClick = false;
 			}
 			lastClickTime = Time.time;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class MenuController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class MenuController : MonoBehaviour
 //		Application.LoadLevel ("Main");
 //		SceneManager.LoadScene ("Main");
 		SceneFader.instance.FadeIn ("Main");
+
+		//Update speed ground
+		GlobalValue.AllSpeedIncrementGround = GlobalValue.START_SPEED_GROUND;
 	}
 
 	public void ToggleSound ()

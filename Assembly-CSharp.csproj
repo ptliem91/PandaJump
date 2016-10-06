@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BGCollector.cs" />
+     <Compile Include="Assets\Scripts\ConstantValue.cs" />
      <Compile Include="Assets\Scripts\DestroyController.cs" />
      <Compile Include="Assets\Scripts\GamePlayController.cs" />
+     <Compile Include="Assets\Scripts\GenerateBackground.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\MoveLeft.cs" />
      <Compile Include="Assets\Scripts\MyCoroutine.cs" />
