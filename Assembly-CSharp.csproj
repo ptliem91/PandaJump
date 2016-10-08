@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BGCollector.cs" />
+     <Compile Include="Assets\Scripts\CharacterSelection.cs" />
      <Compile Include="Assets\Scripts\ConstantValue.cs" />
      <Compile Include="Assets\Scripts\DestroyController.cs" />
      <Compile Include="Assets\Scripts\GamePlayController.cs" />

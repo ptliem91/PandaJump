@@ -6,8 +6,6 @@ using AssemblyCSharp;
 
 public class GamePlayController : MonoBehaviour
 {
-	
-	
 	public static GamePlayController instance;
 
 	[SerializeField]
