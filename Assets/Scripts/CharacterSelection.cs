@@ -1,53 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using AssemblyCSharp;
 
 public class CharacterSelection : MonoBehaviour
 {
+	public static CharacterSelection instance;
 
 	private int selection = 0;
 	public List<GameObject> characters = new List<GameObject> ();
 
-	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		foreach (GameObject chara in characters) {
 			chara.SetActive (false);
 		}
-	
+
+		if (PlayerPrefs.HasKey (GlobalValue.CHARACTER_INDEX)) {
+			selection = PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX);
+		}
+
+		if (selection >= characters.Count || selection < 0) {
+			selection = 0;
+		}
+
 		characters [selection].SetActive (true);
+
+		MakeInstance ();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	void MakeInstance ()
 	{
-	
-		if (Input.GetKeyDown (KeyCode.W)) {
-			characters [selection].SetActive (false);
-			selection++;
-		
-			if (selection >= characters.Count) {
-				selection = 0;
-			}
-			characters [selection].SetActive (true);
-		}
-
-		if (Input.GetKeyDown (KeyCode.S)) {
-			characters [selection].SetActive (false);
-			selection--;
-
-			if (selection < 0) {
-				selection = characters.Count - 1;
-			}
-			characters [selection].SetActive (true);
-		}
-
-		//
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			PlayerPrefs.SetInt ("CharacterSelected", selection);
-			SceneFader.instance.FadeIn ("Main");
+		if (instance == null) {
+			instance = this;
 		}
 	}
+
+	// Use this for initialization
+	//	void Start ()
+	//	{
+	//		foreach (GameObject chara in characters) {
+	//			chara.SetActive (false);
+	//		}
+	//
+	//		characters [selection].SetActive (true);
+	//	}
+
 
 	public void NextButton ()
 	{
@@ -73,7 +71,7 @@ public class CharacterSelection : MonoBehaviour
 
 	public void SelectButton ()
 	{
-		PlayerPrefs.SetInt ("CharacterSelected", selection);
+		PlayerPrefs.SetInt (GlobalValue.CHARACTER_INDEX, selection);
 		SceneFader.instance.FadeIn ("Main");
 	}
 }

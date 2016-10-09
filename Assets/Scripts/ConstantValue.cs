@@ -29,6 +29,8 @@ namespace AssemblyCSharp
 
 		public const float EXTREMLY_HARD_SPEDD_GROUND = 14.0f;
 
+		public const string CHARACTER_INDEX = "CharacterSelected";
+
 		//		public static float AllSpeedIncrementLevel = 1.0f;
 
 		// value of speed increment per level
