@@ -14,10 +14,16 @@ public class ScoreController : MonoBehaviour
 
 	private const string HIGH_SCORES = "High Score";
 
+	private const string POINTS_COUNT = "Points Count";
+
+	[SerializeField]
+	private Text txtTotalPoint;
+
 	void Awake ()
 	{
 		MakeASingleInstance ();
 
+		txtTotalPoint.text = GetPointsCount ().ToString ("0");
 //		PATH_DATA_FILE = Application.persistentDataPath + "playerInfo.dat";
 	}
 
@@ -39,6 +45,19 @@ public class ScoreController : MonoBehaviour
 	public float GetHighScore ()
 	{
 		return PlayerPrefs.GetFloat (HIGH_SCORES);
+	}
+
+	public void SetPointsCount (int point)
+	{
+		PlayerPrefs.SetInt (POINTS_COUNT, point);
+	}
+
+	public int GetPointsCount ()
+	{
+		if (!PlayerPrefs.HasKey (POINTS_COUNT)) {
+			return 0;
+		}
+		return PlayerPrefs.GetInt (POINTS_COUNT);
 	}
 
 	//Save data

@@ -15,7 +15,7 @@ public class GamePlayController : MonoBehaviour
 	private Button pauseButon, resumeButton;
 
 	[SerializeField]
-	private Text txtScore, txtHighScore;
+	private Text txtScore, txtHighScore, txtPoint, txtTotalPoint;
 
 	//Medal
 	[SerializeField]
@@ -67,8 +67,10 @@ public class GamePlayController : MonoBehaviour
 		Time.timeScale = 0f;
 		pausePanel.SetActive (true);
 		pauseButon.gameObject.SetActive (false);
+		txtPoint.gameObject.SetActive (false);
 
 		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
+		txtTotalPoint.text = ScoreController.instance.GetPointsCount ().ToString ("0");
 
 		UpdateImgMedal (ScoreController.instance.GetHighScore ());
 
@@ -82,6 +84,7 @@ public class GamePlayController : MonoBehaviour
 		pausePanel.SetActive (false);
 
 		pauseButon.gameObject.SetActive (true);
+		txtPoint.gameObject.SetActive (true);
 	}
 
 	public void RestartGame ()
@@ -92,15 +95,22 @@ public class GamePlayController : MonoBehaviour
 		SceneFader.instance.FadeIn ("Main");
 	}
 
-	public void PandaDiedShowPanel (float score)
+	public void PandaDiedShowPanel (float score, int coin)
 	{
 		pausePanel.SetActive (true);
 		pauseButon.gameObject.SetActive (false);
+		txtPoint.gameObject.SetActive (false);
 
 		if (score > ScoreController.instance.GetHighScore ()) {
 			ScoreController.instance.SetHighScore (score);
 		}
 		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
+
+		//Coin
+		int currentPoint = ScoreController.instance.GetPointsCount ();
+		ScoreController.instance.SetPointsCount (coin + currentPoint);
+
+		txtTotalPoint.text = ScoreController.instance.GetPointsCount ().ToString ("0");
 
 		UpdateImgMedal (ScoreController.instance.GetHighScore ());
 
@@ -120,6 +130,11 @@ public class GamePlayController : MonoBehaviour
 		txtScore.text = score.ToString ("0.0");
 
 		UpdateImgMedal (score);
+	}
+
+	public void InscreamentPoint (int coin)
+	{
+		txtPoint.text = coin.ToString ("0");
 	}
 
 	public void UpdateImgMedal (float score)

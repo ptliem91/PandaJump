@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b8692f95a0566455386b7cc2d3edaa87
-timeCreated: 1475898800
+timeCreated: 1475979144
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -23,11 +23,11 @@ TextureImporter:
     21300032: spritesheet_jumper_16
     21300034: spritesheet_jumper_17
     21300036: spritesheet_jumper_18
-    21300038: spritesheet_jumper_19
+    21300038: Coin_2
     21300040: spritesheet_jumper_20
     21300042: spritesheet_jumper_21
     21300044: spritesheet_jumper_22
-    21300046: spritesheet_jumper_23
+    21300046: Coin_3
     21300048: spritesheet_jumper_24
     21300050: Bi_1
     21300052: spritesheet_jumper_26
@@ -115,7 +115,7 @@ TextureImporter:
     21300216: spritesheet_jumper_108
     21300218: spritesheet_jumper_109
     21300220: spritesheet_jumper_110
-    21300222: spritesheet_jumper_111
+    21300222: Coin_1
     21300224: spritesheet_jumper_112
     21300226: spritesheet_jumper_113
     21300228: spritesheet_jumper_114
@@ -417,7 +417,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_jumper_19
+      name: Coin_2
       rect:
         serializedVersion: 2
         x: 707
@@ -469,7 +469,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_jumper_23
+      name: Coin_3
       rect:
         serializedVersion: 2
         x: 584
@@ -1613,7 +1613,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_jumper_111
+      name: Coin_1
       rect:
         serializedVersion: 2
         x: 698

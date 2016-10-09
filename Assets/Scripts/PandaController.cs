@@ -19,6 +19,7 @@ public class PandaController : MonoBehaviour
 	private float startTime;
 
 	private float score = 0f;
+	private int coin1 = 0;
 
 	//nhay 2 lan
 	private int jumpLeft = 2;
@@ -93,7 +94,12 @@ public class PandaController : MonoBehaviour
 			deathSfx.PlayOneShot (deathClip);
 			backgroundSfx.Stop ();
 
-			GamePlayController.instance.PandaDiedShowPanel (score);
+			GamePlayController.instance.PandaDiedShowPanel (score, coin1);
+
+		} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Point")) {
+			Destroy (collision.gameObject);
+
+			GamePlayController.instance.InscreamentPoint (++coin1);
 
 		} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
 			jumpLeft = 2;

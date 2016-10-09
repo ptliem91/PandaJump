@@ -12,6 +12,7 @@ public class CharacterSelection : MonoBehaviour
 
 	void Awake ()
 	{
+		//Set all character is false active
 		foreach (GameObject chara in characters) {
 			chara.SetActive (false);
 		}
