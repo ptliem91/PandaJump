@@ -12,9 +12,6 @@ public class MenuController : MonoBehaviour
 	[SerializeField]
 	private GameObject selectCharacterPanel;
 
-	[SerializeField]
-	private GameObject buttonSelectCharacter;
-
 	public void StartGame ()
 	{
 //		Application.LoadLevel ("Main");
@@ -53,13 +50,11 @@ public class MenuController : MonoBehaviour
 	public void ShowSelectCharacterPanel ()
 	{
 		selectCharacterPanel.SetActive (true);
-		buttonSelectCharacter.SetActive (false);
 	}
 
 	public void BackButton ()
 	{
 		selectCharacterPanel.SetActive (false);
-		buttonSelectCharacter.SetActive (true);
 	}
 
 }

@@ -17,13 +17,14 @@ public class ScoreController : MonoBehaviour
 	private const string POINTS_COUNT = "Points Count";
 
 	[SerializeField]
-	private Text txtTotalPoint;
+	private Text txtTotalPoint, txtHighScoreMainMenu;
 
 	void Awake ()
 	{
 		MakeASingleInstance ();
 
 		txtTotalPoint.text = GetPointsCount ().ToString ("0");
+		txtHighScoreMainMenu.text = GetHighScore ().ToString ("0.0");
 //		PATH_DATA_FILE = Application.persistentDataPath + "playerInfo.dat";
 	}
 

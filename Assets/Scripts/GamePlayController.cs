@@ -139,38 +139,38 @@ public class GamePlayController : MonoBehaviour
 
 	public void UpdateImgMedal (float score)
 	{
-		if (score < 40f) {
+		if (score < 30f) {
 			imgMedal.sprite = medalList [0];
 
-		} else if (score >= 40f && score < 100f) {
+		} else if (score >= 30f && score < 70f) {
 			imgMedal.sprite = medalList [1];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
 
-		} else if (score >= 100f && score < 150f) {
+		} else if (score >= 70f && score < 120f) {
 			imgMedal.sprite = medalList [2];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
 
-		} else if (score >= 150f && score < 250f) {
+		} else if (score >= 120f && score < 200f) {
 			imgMedal.sprite = medalList [3];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
-		} else if (score >= 250f && score < 350f) {
+		} else if (score >= 200f && score < 250f) {
 			imgMedal.sprite = medalList [4];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
-		} else if (score >= 350f && score < 550f) {
+		} else if (score >= 250f && score < 300) {
 			imgMedal.sprite = medalList [5];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
-		} else if (score >= 550f && score < 750f) {
+		} else if (score >= 300f && score < 370f) {
 			imgMedal.sprite = medalList [6];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
-		} else if (score >= 750f && score < 1150f) {
+		} else if (score >= 370f && score < 500f) {
 			imgMedal.sprite = medalList [7];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 
-		} else if (score >= 1150f) {
+		} else if (score >= 500f) {
 			imgMedal.sprite = medalList [8];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 		}

@@ -21,7 +21,7 @@ namespace AssemblyCSharp
 
 		public static float START_SPEED_GROUND = 5.0f;
 
-		public const float NORMAL_SPEED_GROUND = 6.0f;
+		public const float NORMAL_SPEED_GROUND = 7.0f;
 
 		public const float HARD_SPEED_GROUND = 8.0f;
 
