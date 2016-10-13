@@ -72,11 +72,11 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="Facebook.Unity.IOS">
- <HintPath>/Users/admin/UnityProjects/PandaJump/Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll</HintPath>
- </Reference>
  <Reference Include="Facebook.Unity">
  <HintPath>/Users/admin/UnityProjects/PandaJump/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="Facebook.Unity.IOS">
+ <HintPath>/Users/admin/UnityProjects/PandaJump/Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

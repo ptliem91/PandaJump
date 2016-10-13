@@ -9,10 +9,10 @@ public class GamePlayController : MonoBehaviour
 	public static GamePlayController instance;
 
 	[SerializeField]
-	private GameObject pausePanel;
+	private GameObject pausePanel, coinSpawer;
 
 	[SerializeField]
-	private Button pauseButon, resumeButton;
+	private Button pauseButon, resumeButton, playButon;
 
 	[SerializeField]
 	private Text txtScore, txtHighScore, txtPoint, txtTotalPoint;
@@ -65,17 +65,20 @@ public class GamePlayController : MonoBehaviour
 	public void PauseGameButton ()
 	{
 		Time.timeScale = 0f;
-		pausePanel.SetActive (true);
+//		pausePanel.SetActive (true);
 		pauseButon.gameObject.SetActive (false);
-		txtPoint.gameObject.SetActive (false);
+//		txtPoint.gameObject.SetActive (false);
+		coinSpawer.SetActive (false);
+		playButon.gameObject.SetActive (true);
+//
+//		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
+//		txtTotalPoint.text = ScoreController.instance.GetPointsCount ().ToString ("0");
+//		txtGameOver.text = "Pause Game";
+//
+//		UpdateImgMedal (ScoreController.instance.GetHighScore ());
 
-		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
-		txtTotalPoint.text = ScoreController.instance.GetPointsCount ().ToString ("0");
-
-		UpdateImgMedal (ScoreController.instance.GetHighScore ());
-
-		resumeButton.onClick.RemoveAllListeners ();
-		resumeButton.onClick.AddListener (() => ReusmeGameButton ());
+//		resumeButton.onClick.RemoveAllListeners ();
+//		resumeButton.onClick.AddListener (() => ReusmeGameButton ());
 	}
 
 	public void ReusmeGameButton ()
@@ -85,6 +88,8 @@ public class GamePlayController : MonoBehaviour
 
 		pauseButon.gameObject.SetActive (true);
 		txtPoint.gameObject.SetActive (true);
+		coinSpawer.SetActive (true);
+		playButon.gameObject.SetActive (false);
 	}
 
 	public void RestartGame ()
@@ -100,6 +105,8 @@ public class GamePlayController : MonoBehaviour
 		pausePanel.SetActive (true);
 		pauseButon.gameObject.SetActive (false);
 		txtPoint.gameObject.SetActive (false);
+		coinSpawer.SetActive (false);
+		playButon.gameObject.SetActive (false);
 
 		if (score > ScoreController.instance.GetHighScore ()) {
 			ScoreController.instance.SetHighScore (score);
