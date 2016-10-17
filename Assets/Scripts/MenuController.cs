@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -12,10 +13,11 @@ public class MenuController : MonoBehaviour
 	[SerializeField]
 	private GameObject selectCharacterPanel;
 
+	[SerializeField]
+	private Button btnLock, btnSelect;
+
 	public void StartGame ()
 	{
-//		Application.LoadLevel ("Main");
-//		SceneManager.LoadScene ("Main");
 		SceneFader.instance.FadeIn ("Main");
 
 		//Update speed ground
@@ -50,6 +52,17 @@ public class MenuController : MonoBehaviour
 	public void ShowSelectCharacterPanel ()
 	{
 		selectCharacterPanel.SetActive (true);
+
+//		CharacterSelection charSelect = CharacterSelection.GetComponent<CharacterSelection> ();
+//		charSelect.disableButton ();
+		Debug.Log (PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX));
+		if (GlobalValue.CHARACTER_INDEX_LOCK == PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX)) {
+			btnLock.gameObject.SetActive (true);
+			btnSelect.gameObject.SetActive (false);
+		} else {
+			btnLock.gameObject.SetActive (false);
+			btnSelect.gameObject.SetActive (true);
+		}
 	}
 
 	public void BackButton ()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class CharacterSelection : MonoBehaviour
 	private int selection = 0;
 	public List<GameObject> characters = new List<GameObject> ();
 
+	[SerializeField]
+	private Button btnSelect, btnLock;
+
 	void Awake ()
 	{
+//		GameObject go = Resources.Load ("Prefabs/GroundCake") as GameObject;
+
 		//Set all character is false active
 		foreach (GameObject chara in characters) {
 			chara.SetActive (false);
@@ -26,6 +32,10 @@ public class CharacterSelection : MonoBehaviour
 		}
 
 		characters [selection].SetActive (true);
+
+
+
+//		go.GetComponent<SpriteRenderer> ().sprite = characters [selection];
 
 		MakeInstance ();
 	}
@@ -57,6 +67,8 @@ public class CharacterSelection : MonoBehaviour
 			selection = 0;
 		}
 		characters [selection].SetActive (true);
+
+		disableButton ();
 	}
 
 	public void PreviousButton ()
@@ -68,11 +80,32 @@ public class CharacterSelection : MonoBehaviour
 			selection = characters.Count - 1;
 		}
 		characters [selection].SetActive (true);
+
+		disableButton ();
 	}
 
 	public void SelectButton ()
 	{
 		PlayerPrefs.SetInt (GlobalValue.CHARACTER_INDEX, selection);
 		SceneFader.instance.FadeIn ("Main");
+	}
+
+
+	public void Unlock ()
+	{
+		btnLock.gameObject.SetActive (false);
+		btnSelect.gameObject.SetActive (true);
+	}
+
+	public void disableButton ()
+	{
+		
+		if (selection == GlobalValue.CHARACTER_INDEX_LOCK) {
+			btnLock.gameObject.SetActive (true);
+			btnSelect.gameObject.SetActive (false);
+		} else {
+			btnLock.gameObject.SetActive (false);
+			btnSelect.gameObject.SetActive (true);
+		}
 	}
 }
