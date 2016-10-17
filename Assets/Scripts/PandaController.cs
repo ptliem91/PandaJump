@@ -96,13 +96,17 @@ public class PandaController : MonoBehaviour
 
 			GamePlayController.instance.PandaDiedShowPanel (score, coin1);
 
-		} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Point")) {
-			Destroy (collision.gameObject);
-
-			GamePlayController.instance.InscreamentPoint (++coin1);
-
 		} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
 			jumpLeft = 2;
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer ("Point")) {
+			Destroy (other.gameObject);
+
+			GamePlayController.instance.InscreamentPoint (++coin1);
 		}
 	}
 

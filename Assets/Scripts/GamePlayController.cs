@@ -12,17 +12,17 @@ public class GamePlayController : MonoBehaviour
 	private GameObject pausePanel, coinSpawer;
 
 	[SerializeField]
-	private Button pauseButon, resumeButton, playButon;
+	private Button resumeButton;
 
 	[SerializeField]
 	private Text txtScore, txtHighScore, txtPoint, txtTotalPoint;
 
 	//Medal
-	[SerializeField]
-	private Image imgMedal;
+	//	[SerializeField]
+	//	private Image imgMedal;
 
-	[SerializeField]
-	private Sprite[] medalList;
+	//	[SerializeField]
+	//	private Sprite[] medalList;
 
 	//
 	private bool isExited = true;
@@ -66,10 +66,10 @@ public class GamePlayController : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 //		pausePanel.SetActive (true);
-		pauseButon.gameObject.SetActive (false);
+//		pauseButon.gameObject.SetActive (false);
 //		txtPoint.gameObject.SetActive (false);
 		coinSpawer.SetActive (false);
-		playButon.gameObject.SetActive (true);
+//		playButon.gameObject.SetActive (true);
 //
 //		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
 //		txtTotalPoint.text = ScoreController.instance.GetPointsCount ().ToString ("0");
@@ -86,10 +86,11 @@ public class GamePlayController : MonoBehaviour
 		Time.timeScale = 1f;
 		pausePanel.SetActive (false);
 
-		pauseButon.gameObject.SetActive (true);
+//		pauseButon.gameObject.SetActive (true);
 		txtPoint.gameObject.SetActive (true);
 		coinSpawer.SetActive (true);
-		playButon.gameObject.SetActive (false);
+//		playButon.gameObject.SetActive (false);
+		txtScore.gameObject.SetActive (true);
 	}
 
 	public void RestartGame ()
@@ -103,10 +104,11 @@ public class GamePlayController : MonoBehaviour
 	public void PandaDiedShowPanel (float score, int coin)
 	{
 		pausePanel.SetActive (true);
-		pauseButon.gameObject.SetActive (false);
+//		pauseButon.gameObject.SetActive (false);
 		txtPoint.gameObject.SetActive (false);
 		coinSpawer.SetActive (false);
-		playButon.gameObject.SetActive (false);
+//		playButon.gameObject.SetActive (false);
+		txtScore.gameObject.SetActive (false);
 
 		if (score > ScoreController.instance.GetHighScore ()) {
 			ScoreController.instance.SetHighScore (score);
@@ -147,38 +149,38 @@ public class GamePlayController : MonoBehaviour
 	public void UpdateImgMedal (float score)
 	{
 		if (score < 30f) {
-			imgMedal.sprite = medalList [0];
+//			imgMedal.sprite = medalList [0];
 
 		} else if (score >= 30f && score < 70f) {
-			imgMedal.sprite = medalList [1];
+//			imgMedal.sprite = medalList [1];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
 
 		} else if (score >= 70f && score < 120f) {
-			imgMedal.sprite = medalList [2];
+//			imgMedal.sprite = medalList [2];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
 
 		} else if (score >= 120f && score < 200f) {
-			imgMedal.sprite = medalList [3];
+//			imgMedal.sprite = medalList [3];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
 		} else if (score >= 200f && score < 250f) {
-			imgMedal.sprite = medalList [4];
+//			imgMedal.sprite = medalList [4];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
 		} else if (score >= 250f && score < 300) {
-			imgMedal.sprite = medalList [5];
+//			imgMedal.sprite = medalList [5];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
 		} else if (score >= 300f && score < 370f) {
-			imgMedal.sprite = medalList [6];
+//			imgMedal.sprite = medalList [6];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
 		} else if (score >= 370f && score < 500f) {
-			imgMedal.sprite = medalList [7];
+//			imgMedal.sprite = medalList [7];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 
 		} else if (score >= 500f) {
-			imgMedal.sprite = medalList [8];
+//			imgMedal.sprite = medalList [8];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 		}
 	}

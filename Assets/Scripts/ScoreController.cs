@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using AssemblyCSharp;
 
 //using System.Runtime.Serialization.Formatters.Binary;
 //using System.IO;
-//using AssemblyCSharp;
 
 public class ScoreController : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class ScoreController : MonoBehaviour
 
 	private const string HIGH_SCORES = "High Score";
 
-	private const string POINTS_COUNT = "Points Count";
+
 
 	[SerializeField]
 	private Text txtTotalPoint, txtHighScoreMainMenu;
@@ -50,15 +50,15 @@ public class ScoreController : MonoBehaviour
 
 	public void SetPointsCount (int point)
 	{
-		PlayerPrefs.SetInt (POINTS_COUNT, point);
+		PlayerPrefs.SetInt (GlobalValue.POINTS_COUNT, point);
 	}
 
 	public int GetPointsCount ()
 	{
-		if (!PlayerPrefs.HasKey (POINTS_COUNT)) {
+		if (!PlayerPrefs.HasKey (GlobalValue.POINTS_COUNT)) {
 			return 0;
 		}
-		return PlayerPrefs.GetInt (POINTS_COUNT);
+		return PlayerPrefs.GetInt (GlobalValue.POINTS_COUNT);
 	}
 
 	//Save data

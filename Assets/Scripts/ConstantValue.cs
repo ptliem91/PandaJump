@@ -31,6 +31,8 @@ namespace AssemblyCSharp
 
 		public const string CHARACTER_INDEX = "CharacterSelected";
 
+		public const string POINTS_COUNT = "Points Count";
+
 		//		public static float AllSpeedIncrementLevel = 1.0f;
 
 		// value of speed increment per level
