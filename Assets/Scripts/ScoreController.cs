@@ -14,8 +14,6 @@ public class ScoreController : MonoBehaviour
 
 	private const string HIGH_SCORES = "High Score";
 
-
-
 	[SerializeField]
 	private Text txtTotalPoint, txtHighScoreMainMenu;
 

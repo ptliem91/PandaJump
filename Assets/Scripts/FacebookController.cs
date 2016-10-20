@@ -37,7 +37,7 @@ public class FacebookController : MonoBehaviour
 	{
 		FB.ShareLink (
 			contentTitle: "This is message share",
-			contentURL: new System.Uri ("link google play"),
+//			contentURL: new System.Uri ("link google play"),
 			contentDescription: "Here is my first game!",
 			callback: OnShare);
 	}

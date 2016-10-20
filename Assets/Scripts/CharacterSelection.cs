@@ -23,8 +23,8 @@ public class CharacterSelection : MonoBehaviour
 			chara.SetActive (false);
 		}
 
-		if (PlayerPrefs.HasKey (GlobalValue.CHARACTER_INDEX)) {
-			selection = PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX);
+		if (PlayerPrefs.HasKey (GlobalValue.CHARACTER_SELECTED_INDEX)) {
+			selection = PlayerPrefs.GetInt (GlobalValue.CHARACTER_SELECTED_INDEX);
 		}
 
 		if (selection >= characters.Count || selection < 0) {
@@ -33,9 +33,10 @@ public class CharacterSelection : MonoBehaviour
 
 		characters [selection].SetActive (true);
 
-
-
 //		go.GetComponent<SpriteRenderer> ().sprite = characters [selection];
+		if (!PlayerPrefs.HasKey (GlobalValue.KEY_CHARACTER_LOCK_INDEX)) {
+			PlayerPrefs.SetInt (GlobalValue.KEY_CHARACTER_LOCK_INDEX, GlobalValue.CHARACTER_LOCKED_INDEX);
+		}
 
 		MakeInstance ();
 	}
@@ -86,21 +87,28 @@ public class CharacterSelection : MonoBehaviour
 
 	public void SelectButton ()
 	{
-		PlayerPrefs.SetInt (GlobalValue.CHARACTER_INDEX, selection);
+		PlayerPrefs.SetInt (GlobalValue.CHARACTER_SELECTED_INDEX, selection);
 		SceneFader.instance.FadeIn ("Main");
 	}
 
 
 	public void Unlock ()
 	{
-		btnLock.gameObject.SetActive (false);
-		btnSelect.gameObject.SetActive (true);
+		if (GlobalValue.TOTAL_COIN_UNLOCK <= PlayerPrefs.GetInt (GlobalValue.POINTS_COUNT)) {
+			btnLock.gameObject.SetActive (false);
+			btnSelect.gameObject.SetActive (true);
+
+			PlayerPrefs.SetInt (GlobalValue.KEY_CHARACTER_LOCK_INDEX, -1);
+			PlayerPrefs.SetInt (GlobalValue.POINTS_COUNT, PlayerPrefs.GetInt (GlobalValue.POINTS_COUNT) - GlobalValue.TOTAL_COIN_UNLOCK);
+		}
+
 	}
 
-	public void disableButton ()
+	private void disableButton ()
 	{
+		int indexLock = PlayerPrefs.GetInt (GlobalValue.KEY_CHARACTER_LOCK_INDEX);
 		
-		if (selection == GlobalValue.CHARACTER_INDEX_LOCK) {
+		if (selection == indexLock) {
 			btnLock.gameObject.SetActive (true);
 			btnSelect.gameObject.SetActive (false);
 		} else {

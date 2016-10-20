@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{61084CD8-0C83-CBD8-C404-171ACC7667EA}") = "PandaJump", "Assembly-CSharp.csproj", "{26600555-8D19-B1A7-F95E-2FD0903F1A9A}"
 EndProject
+Project("{61084CD8-0C83-CBD8-C404-171ACC7667EA}") = "PandaJump", "Assembly-CSharp-Editor.csproj", "{094A6095-91A2-8BEC-3D1C-E6D0BA918FA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{26600555-8D19-B1A7-F95E-2FD0903F1A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26600555-8D19-B1A7-F95E-2FD0903F1A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26600555-8D19-B1A7-F95E-2FD0903F1A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094A6095-91A2-8BEC-3D1C-E6D0BA918FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094A6095-91A2-8BEC-3D1C-E6D0BA918FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094A6095-91A2-8BEC-3D1C-E6D0BA918FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094A6095-91A2-8BEC-3D1C-E6D0BA918FA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

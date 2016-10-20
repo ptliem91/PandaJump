@@ -126,6 +126,8 @@ public class GamePlayController : MonoBehaviour
 		resumeButton.onClick.RemoveAllListeners ();
 		resumeButton.onClick.AddListener (() => RestartGame ());
 
+//		AdmobController.instance.RequestBanner ();
+
 	}
 
 	public void MenuButton ()

@@ -53,10 +53,9 @@ public class MenuController : MonoBehaviour
 	{
 		selectCharacterPanel.SetActive (true);
 
-//		CharacterSelection charSelect = CharacterSelection.GetComponent<CharacterSelection> ();
-//		charSelect.disableButton ();
-		Debug.Log (PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX));
-		if (GlobalValue.CHARACTER_INDEX_LOCK == PlayerPrefs.GetInt (GlobalValue.CHARACTER_INDEX)) {
+		Debug.Log ("ShowSelectCharacterPanel --->" + PlayerPrefs.GetInt (GlobalValue.KEY_CHARACTER_LOCK_INDEX));
+
+		if (PlayerPrefs.GetInt (GlobalValue.CHARACTER_SELECTED_INDEX) == PlayerPrefs.GetInt (GlobalValue.KEY_CHARACTER_LOCK_INDEX)) {
 			btnLock.gameObject.SetActive (true);
 			btnSelect.gameObject.SetActive (false);
 		} else {

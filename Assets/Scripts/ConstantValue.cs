@@ -29,12 +29,14 @@ namespace AssemblyCSharp
 
 		public const float EXTREMLY_HARD_SPEDD_GROUND = 14.0f;
 
-		public const string CHARACTER_INDEX = "CharacterSelected";
+		public const string CHARACTER_SELECTED_INDEX = "CharacterSelected";
 
 		public const string POINTS_COUNT = "Points Count";
 
+		public const string KEY_CHARACTER_LOCK_INDEX = "CharacterLockIndex";
+		public const int CHARACTER_LOCKED_INDEX = 2;
 
-		public const int CHARACTER_INDEX_LOCK = 2;
+		public const int TOTAL_COIN_UNLOCK = 99;
 
 
 		//		public static float AllSpeedIncrementLevel = 1.0f;
