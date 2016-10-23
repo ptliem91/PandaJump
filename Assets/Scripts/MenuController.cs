@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-	public string packageName;
-
 	public GameObject audioOnIcon;
 	public GameObject audioOffIcon;
 
@@ -85,7 +83,7 @@ public class MenuController : MonoBehaviour
 	public void RateUs ()
 	{
 		#if UNITY_ANDROID
-		Application.OpenURL ("market://details?id=" + packageName);
+		Application.OpenURL ("market://details?id=" + GlobalValue.PACKAGE_NAME);
 		#elif UNITY_IPHONE
 		Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_ID");
 		#endif

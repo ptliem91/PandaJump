@@ -2,6 +2,7 @@
 using System.Collections;
 using Facebook.Unity;
 using UnityEngine.UI;
+using AssemblyCSharp;
 
 public class FacebookController : MonoBehaviour
 {
@@ -36,9 +37,9 @@ public class FacebookController : MonoBehaviour
 	public void Share ()
 	{
 		FB.ShareLink (
-			contentTitle: "This is message share",
-//			contentURL: new System.Uri ("link google play"),
-			contentDescription: "Here is my first game!",
+			contentTitle: "Run, Jump!",
+			contentURL: new System.Uri ("market://details?id=" + GlobalValue.PACKAGE_NAME),
+			contentDescription: "A funny game for entertainment and relaxation! Simply, You only Run and Jump .....",
 			callback: OnShare);
 	}
 

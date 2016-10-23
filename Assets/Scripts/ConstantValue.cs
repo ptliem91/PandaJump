@@ -34,33 +34,12 @@ namespace AssemblyCSharp
 		public const string POINTS_COUNT = "Points Count";
 
 		public const string KEY_CHARACTER_LOCK_INDEX = "CharacterLockIndex";
+
 		public const int CHARACTER_LOCKED_INDEX = 2;
 
 		public const int TOTAL_COIN_UNLOCK = 99;
 
-
-		//		public static float AllSpeedIncrementLevel = 1.0f;
-
-		// value of speed increment per level
-		//		public const float ALL_SPEED_INCREMENT = 0.2f;
-
-		// condition to increase speed level by one level
-		//		public const int ALL_SPEED_LEVEL_UP_BY_SCORE = 50;
-
-		// all contants
-		// bg's scroll speed
-
-		//		public const float BACKGROUND_SCROLL_BASE_SPEED = 0.1f;
-		//
-		//		public const float SPAWN_TREE_RANDOM_BEGIN = 1.0f;
-		//		public const float SPAWN_TREE_RANDOM_MIN = 1.0f;
-		//		public const float SPAWN_TREE_RANDOM_MAX = 3.0f;
-		//
-		//		public const float KILL_PLAYER_SPEED = 6f;
-		//
-		//		public const float PLAYER_JUMPING_HEIGHT = 15f;
-		//
-		//		public const float PLAYER_SCORE_EACH_UPDATE = 0.05f;
+		public const string PACKAGE_NAME = "com.darkmoon.runtapjump";
 	}
 }
 

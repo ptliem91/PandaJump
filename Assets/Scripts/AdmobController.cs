@@ -49,7 +49,7 @@ public class AdmobController : MonoBehaviour
 		return new AdRequest.Builder ()
 			.AddTestDevice (AdRequest.TestDeviceSimulator)
 			.AddTestDevice ("715B8ED480FE68F53C865C5CD0BC9605")
-			.AddTestDevice ("A2568EFD855BF5841BFF07096C5F87D5")
+//			.AddTestDevice ("A2568EFD855BF5841BFF07096C5F87D5")
 			.AddKeyword ("game")
 			.SetGender (Gender.Male)
 			.SetBirthday (new DateTime (1985, 1, 1))
