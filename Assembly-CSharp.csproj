@@ -100,6 +100,7 @@
      <Compile Include="Assets\Scripts\FacebookController.cs" />
      <Compile Include="Assets\Scripts\GamePlayController.cs" />
      <Compile Include="Assets\Scripts\GenerateBackground.cs" />
+     <Compile Include="Assets\Scripts\GenerateCoin.cs" />
      <Compile Include="Assets\Scripts\GoogleMobileAdsDemoScript.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\MoveLeft.cs" />

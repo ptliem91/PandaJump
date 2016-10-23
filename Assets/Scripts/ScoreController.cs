@@ -17,6 +17,8 @@ public class ScoreController : MonoBehaviour
 	[SerializeField]
 	private Text txtTotalPoint, txtHighScoreMainMenu;
 
+	private bool isQuit = true;
+
 	void Awake ()
 	{
 		MakeASingleInstance ();
@@ -33,6 +35,18 @@ public class ScoreController : MonoBehaviour
 		} else {
 			instance = this;
 			DontDestroyOnLoad (gameObject);
+		}
+	}
+
+	// Update is called once per frame
+	void Update ()
+	{
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (!isQuit) {
+				Application.Quit (); 
+			} else {
+				isQuit = false;
+			}
 		}
 	}
 

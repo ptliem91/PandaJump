@@ -17,9 +17,9 @@ namespace AssemblyCSharp
 		{
 		}
 
-		public static float AllSpeedIncrementGround = 5.0f;
+		public static float AllSpeedIncrementGround = 5.5f;
 
-		public static float START_SPEED_GROUND = 5.0f;
+		public static float START_SPEED_GROUND = 6.0f;
 
 		public const float NORMAL_SPEED_GROUND = 7.0f;
 

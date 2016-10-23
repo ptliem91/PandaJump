@@ -6,32 +6,39 @@ using GoogleMobileAds.Api;
 
 public class AdmobController : MonoBehaviour
 {
-	private const float TIME_KEEPING = 20f;
-	private const float TIME_NEXT = 35f;
+	private const float TIME_KEEPING = 25f;
+	//25f
+	private const float TIME_NEXT = 60f;
+	//90f
 
 	private BannerView bannerView;
+	private InterstitialAd interstitial;
 
-	private float deltaTime = 0.0f;
-	private float timeDestroy = 0.0f;
-
-	private float timeShow = 10f;
+	private float timeDestroy = TIME_KEEPING;
+	private float timeShow = 0.0f;
+	private float timeNextShow = 20f;
+	//30f
 
 	public void Update ()
 	{
-		// Calculate simple moving average for time to render screen. 0.1 factor used as smoothing
-		// value.
-		deltaTime += Time.deltaTime;
+//		print (Time.realtimeSinceStartup);
+		timeShow = Time.realtimeSinceStartup;
 
-		if (deltaTime > timeShow) {
-//			Debug.Log ("Show Banner Ads:: how Banner Ads:: how Banner Ads:: how Banner Ads:: how Banner Ads:: " + deltaTime);
+		if (timeShow > timeNextShow) {
+//			Debug.Log ("Show Banner Ads:: how Banner Ads:: how Banner Ads:: how Banner Ads:: how Banner Ads:: " + timeShow);
 			RequestBanner ();
 
-			timeDestroy = deltaTime + TIME_KEEPING;
-			timeShow += TIME_NEXT;
+			timeDestroy = timeShow + TIME_KEEPING;
+			timeNextShow = timeShow + TIME_NEXT;
+
+//			Debug.Log ("timeDestroytimeDestroytimeDestroy:::" + timeDestroy);
+//			Debug.Log ("timeNextShowtimeNextShowtimeNextShow:::" + timeNextShow);
 		}
 
-		if (deltaTime > timeDestroy) {
-			bannerView.Destroy ();
+		if (timeShow > timeDestroy) {
+//			Debug.Log ("timeDestroy=========>" + timeDestroy);
+			this.bannerView.Destroy ();
+			timeDestroy = 9999999f;
 		}
 
 	}
@@ -41,7 +48,8 @@ public class AdmobController : MonoBehaviour
 	{
 		return new AdRequest.Builder ()
 			.AddTestDevice (AdRequest.TestDeviceSimulator)
-			.AddTestDevice ("0123456789ABCDEF0123456789ABCDEF")
+			.AddTestDevice ("715B8ED480FE68F53C865C5CD0BC9605")
+			.AddTestDevice ("A2568EFD855BF5841BFF07096C5F87D5")
 			.AddKeyword ("game")
 			.SetGender (Gender.Male)
 			.SetBirthday (new DateTime (1985, 1, 1))
@@ -50,7 +58,7 @@ public class AdmobController : MonoBehaviour
 			.Build ();
 	}
 
-	public void RequestBanner ()
+	private void RequestBanner ()
 	{
 		
 		// These ad units are configured to always serve test ads.
@@ -76,6 +84,42 @@ public class AdmobController : MonoBehaviour
 
 		// Load a banner ad.
 		this.bannerView.LoadAd (this.CreateAdRequest ());
+	}
+
+	private void RequestInterstitial ()
+	{
+		// These ad units are configured to always serve test ads.
+		#if UNITY_EDITOR
+		string adUnitId = "unused";
+		#elif UNITY_ANDROID
+		string adUnitId = "ca-app-pub-5682292900657385/9370247352";
+		#elif UNITY_IPHONE
+		string adUnitId = "unused";
+		#else
+		string adUnitId = "unexpected_platform";
+		#endif
+
+		// Create an interstitial.
+		this.interstitial = new InterstitialAd (adUnitId);
+
+		// Register for ad events.
+		this.interstitial.OnAdLoaded += this.HandleInterstitialLoaded;
+		this.interstitial.OnAdFailedToLoad += this.HandleInterstitialFailedToLoad;
+		this.interstitial.OnAdOpening += this.HandleInterstitialOpened;
+		this.interstitial.OnAdClosed += this.HandleInterstitialClosed;
+		this.interstitial.OnAdLeavingApplication += this.HandleInterstitialLeftApplication;
+
+		// Load an interstitial ad.
+		this.interstitial.LoadAd (this.CreateAdRequest ());
+	}
+
+	private void ShowInterstitial ()
+	{
+		if (this.interstitial.IsLoaded ()) {
+			this.interstitial.Show ();
+		} else {
+			MonoBehaviour.print ("Interstitial is not ready yet");
+		}
 	}
 
 	#region Banner callback handlers

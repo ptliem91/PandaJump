@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
+	public string packageName;
 
 	public GameObject audioOnIcon;
 	public GameObject audioOffIcon;
@@ -15,6 +16,18 @@ public class MenuController : MonoBehaviour
 
 	[SerializeField]
 	private Button btnLock, btnSelect;
+
+	void Start ()
+	{
+		if (PlayerPrefs.GetInt ("Muted", 0) == 0) {
+			audioOffIcon.SetActive (false);
+			audioOnIcon.SetActive (true);
+
+		} else {
+			audioOffIcon.SetActive (true);
+			audioOnIcon.SetActive (false);
+		}
+	}
 
 	public void StartGame ()
 	{
@@ -67,6 +80,15 @@ public class MenuController : MonoBehaviour
 	public void BackButton ()
 	{
 		selectCharacterPanel.SetActive (false);
+	}
+
+	public void RateUs ()
+	{
+		#if UNITY_ANDROID
+		Application.OpenURL ("market://details?id=" + packageName);
+		#elif UNITY_IPHONE
+		Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_ID");
+		#endif
 	}
 
 }

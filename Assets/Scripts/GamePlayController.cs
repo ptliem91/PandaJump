@@ -25,7 +25,7 @@ public class GamePlayController : MonoBehaviour
 	//	private Sprite[] medalList;
 
 	//
-	private bool isExited = true;
+	//	private bool isExited = true;
 
 	//
 	bool isPaused = false;
@@ -40,18 +40,6 @@ public class GamePlayController : MonoBehaviour
 	{
 		if (instance == null) {
 			instance = this;
-		}
-	}
-
-	// Update is called once per frame
-	void Update ()
-	{
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			if (!isExited) {
-				Application.Quit (); 
-			} else {
-				isExited = false;
-			}
 		}
 	}
 
@@ -126,8 +114,9 @@ public class GamePlayController : MonoBehaviour
 		resumeButton.onClick.RemoveAllListeners ();
 		resumeButton.onClick.AddListener (() => RestartGame ());
 
-//		AdmobController.instance.RequestBanner ();
-
+		//
+//		GameObject go = GameObject.Find ("AdMob");
+//		go.GetComponent<AdmobController> ().ShowInterstitial ();
 	}
 
 	public void MenuButton ()
