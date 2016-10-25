@@ -17,14 +17,7 @@ public class MenuController : MonoBehaviour
 
 	void Start ()
 	{
-		if (PlayerPrefs.GetInt ("Muted", 0) == 0) {
-			audioOffIcon.SetActive (false);
-			audioOnIcon.SetActive (true);
-
-		} else {
-			audioOffIcon.SetActive (true);
-			audioOnIcon.SetActive (false);
-		}
+		SetSoundState ();
 	}
 
 	public void StartGame ()

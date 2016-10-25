@@ -9,7 +9,7 @@ public class GenerateCoin : MonoBehaviour
 	public float spawnRate = 1f;
 	public float randomDelay = 3f;
 
-	public Transform prefabCoinToSpawn;
+	public Transform[] prefabCoinToSpawn;
 
 	void Start ()
 	{
@@ -21,9 +21,13 @@ public class GenerateCoin : MonoBehaviour
 	{
 		if (startTime > Random.Range (300, 1000) && Time.time > nextSpawn) {
 
-			Instantiate (prefabCoinToSpawn, transform.position, Quaternion.identity);
+			int randNum = Random.Range (0, prefabCoinToSpawn.Length);
+			Transform spawnRandom = prefabCoinToSpawn [randNum];
+
+			Instantiate (spawnRandom, transform.position, Quaternion.identity);
 
 			nextSpawn = Time.time + spawnRate + Random.Range (3, randomDelay);
+
 		} else {
 			startTime++;
 		}
