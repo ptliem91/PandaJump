@@ -9,7 +9,7 @@ public class GamePlayController : MonoBehaviour
 	public static GamePlayController instance;
 
 	[SerializeField]
-	private GameObject pausePanel, coinSpawer;
+	private GameObject pausePanel, coinSpawer, enemyFlySpawer;
 
 	[SerializeField]
 	private Button resumeButton;
@@ -57,6 +57,7 @@ public class GamePlayController : MonoBehaviour
 //		pauseButon.gameObject.SetActive (false);
 //		txtPoint.gameObject.SetActive (false);
 		coinSpawer.SetActive (false);
+		enemyFlySpawer.SetActive (false);
 //		playButon.gameObject.SetActive (true);
 //
 //		txtHighScore.text = ScoreController.instance.GetHighScore ().ToString ("0.0");
@@ -77,6 +78,7 @@ public class GamePlayController : MonoBehaviour
 //		pauseButon.gameObject.SetActive (true);
 		txtPoint.gameObject.SetActive (true);
 		coinSpawer.SetActive (true);
+		enemyFlySpawer.SetActive (true);
 //		playButon.gameObject.SetActive (false);
 		txtScore.gameObject.SetActive (true);
 	}
@@ -95,6 +97,7 @@ public class GamePlayController : MonoBehaviour
 //		pauseButon.gameObject.SetActive (false);
 		txtPoint.gameObject.SetActive (false);
 		coinSpawer.SetActive (false);
+		enemyFlySpawer.SetActive (false);
 //		playButon.gameObject.SetActive (false);
 		txtScore.gameObject.SetActive (false);
 
@@ -139,38 +142,38 @@ public class GamePlayController : MonoBehaviour
 
 	public void UpdateImgMedal (float score)
 	{
-		if (score < 30f) {
+		if (score < 20f) {
 //			imgMedal.sprite = medalList [0];
 
-		} else if (score >= 30f && score < 70f) {
+		} else if (score >= 20f && score < 60f) {
 //			imgMedal.sprite = medalList [1];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
 
-		} else if (score >= 70f && score < 120f) {
+		} else if (score >= 60f && score < 100f) {
 //			imgMedal.sprite = medalList [2];
-			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL_SPEED_GROUND;
+			GlobalValue.AllSpeedIncrementGround = GlobalValue.NORMAL1_SPEED_GROUND;
 
-		} else if (score >= 120f && score < 200f) {
+		} else if (score >= 100f && score < 150f) {
 //			imgMedal.sprite = medalList [3];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
-		} else if (score >= 200f && score < 250f) {
+		} else if (score >= 150f && score < 210f) {
 //			imgMedal.sprite = medalList [4];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.HARD_SPEED_GROUND;
 
-		} else if (score >= 250f && score < 300) {
+		} else if (score >= 210f && score < 270f) {
 //			imgMedal.sprite = medalList [5];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
-		} else if (score >= 300f && score < 370f) {
+		} else if (score >= 270 && score < 350f) {
 //			imgMedal.sprite = medalList [6];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.VERY_HARD_SPEED_GROUND;
 
-		} else if (score >= 370f && score < 500f) {
+		} else if (score >= 350f && score < 400f) {
 //			imgMedal.sprite = medalList [7];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 
-		} else if (score >= 500f) {
+		} else if (score >= 400f) {
 //			imgMedal.sprite = medalList [8];
 			GlobalValue.AllSpeedIncrementGround = GlobalValue.EXTREMLY_HARD_SPEDD_GROUND;
 		}

@@ -50,7 +50,6 @@ public class AdmobController : MonoBehaviour
 			.AddTestDevice (AdRequest.TestDeviceSimulator)
 			.AddTestDevice ("715B8ED480FE68F53C865C5CD0BC9605")
 //			.AddTestDevice ("A2568EFD855BF5841BFF07096C5F87D5")
-			.TagForChildDirectedTreatment (false)
 			.AddExtra ("color_bg", "9B30FF")
 			.Build ();
 	}
